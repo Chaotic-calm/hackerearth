@@ -1,0 +1,32 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+	long N, singer, c=0, max_singer=0, fav_singer=0;
+	map<long, long> s;
+
+	cin >> N; 
+	for(long i=0; i<N; i++)
+	{
+		cin >> singer;
+		s[singer]++;
+		if(singer > max_singer)
+		{
+			max_singer = singer;
+		}
+		if(s[singer] > c)
+		{
+			c = s[singer];
+		}
+	}	
+	for(auto i = s.begin(); i!=s.end(); ++i)
+	{
+		if(i->second==c)
+		{
+			fav_singer++;
+		}
+	}
+	cout << fav_singer << endl;
+	return 0;
+}
